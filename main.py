@@ -16,7 +16,7 @@ class Card:
         self.suit = suit
         self.value = values[rank]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.rank + ' of ' + self.suit
 
 class Deck:
@@ -37,6 +37,23 @@ class Deck:
             random.shuffle(self.all_cards)
         
         #This will remove one Card from the deck acting like a dealer dealing one card
-        def deal_one(self):
+        def deal_one(self) -> object:
             return self.all_cards.pop()
+
+class Player:
+
+    def __init__(self, name):
+        
+        self.name = name
+        self.balance = 100
+        self.cards = []
+
+    def __str__(self) -> str:
+        return f"Player has {self.balance} left."
+
+    def add_card(self):
+        return self.cards.append(deck.deal_one())
+
+me = Player("Me")
+print(me)
 
